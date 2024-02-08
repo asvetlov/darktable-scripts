@@ -83,7 +83,7 @@ local function sync_group_rate(image)
     end
   end
   for i, img in ipairs(group_images) do
-    if img.rating != min_rating then
+    if img.rating ~= min_rating then
       img.rating = min_rating
     end
   end
