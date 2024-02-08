@@ -112,7 +112,7 @@ dt.register_event(MODULE, "shortcut",
       sync_group_rate(img)
     end
   end,
-  _("sync group rate")
+  "sync group rate"
 )
 
 return script_data
