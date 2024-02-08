@@ -73,18 +73,15 @@ script_data.show = nil -- only required for libs since the destroy_method only h
 
 local function sync_group_rate(image)
   local group_images = image:get_group_members()
-  local min_rating = 1000
-  if #group_images < 2 then
-    return
-  end
+  local has_rejected = false
   for i, img in ipairs(group_images) do
-    if img.rating < min_rating then
-      min_rating = img.rating
+    if img.rating == -1 then
+      has_rejected = true
     end
   end
-  for i, img in ipairs(group_images) do
-    if img.rating ~= min_rating then
-      img.rating = min_rating
+  if has_rejected then
+    for i, img in ipairs(group_images) do
+      img.rating = -1
     end
   end
 end
