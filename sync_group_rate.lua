@@ -108,7 +108,7 @@ dt.register_event(MODULE, "shortcut",
   function(event, shortcut)
     -- ignore the film roll, it contains all the images, not just the imported
     local images = dt.gui.selection()
-    for i, img in images do
+    for i, img in ipairs(images) do
       sync_group_rate(img)
     end
   end,
